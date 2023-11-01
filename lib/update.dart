@@ -9,12 +9,14 @@ class Myupdatepage extends StatefulWidget {
 
 class _MyupdatepageState extends State<Myupdatepage> {
   List <Map<String, dynamic>> listName =[
-    {'name': 'Vikesh','subtitle': '3 minutes ago','imgUrl' : 'assets/images/boy1.png','colors' : Colors.orange, 'date': '11:21 am','ureadmsg': "2",},
-    {'name': 'Rajesh Sheoran', 'subtitle': '3 minutes ago', 'imgUrl' : "girl3.png", 'colors' : Colors.red, 'date': '12:22 pm', 'ureadmsg': "1",},
+    {'name': 'Vikesh','subtitle': '3 minutes ago','imgUrl' : 'assets/images/boy1.jpeg','colors' : Colors.orange, 'date': '11:21 am','ureadmsg': "2",},
+    {'name': 'Rajesh Sheoran', 'subtitle': '3 minutes ago', 'imgUrl' : "assets/images/girl3.png", 'colors' : Colors.red, 'date': '12:22 pm', 'ureadmsg': "1",},
     {'name': 'Geeta kumari', 'subtitle': '3 minutes ago', 'imgUrl' : "assets/images/girl 2.png", 'colors' : Colors.yellow, 'date': '01:33 am', 'ureadmsg': "5", },
-    {'name': 'Rajiv kumar', 'subtitle': '3 minutes ago', 'imgUrl' : "assets/girl3.png", 'colors' : Colors.green, 'date': '01:33 am', 'ureadmsg': "2", },
-    {'name': 'Pawan Singh', 'subtitle': '3 minutes ago ', 'imgUrl' : "assets/girl3.png", 'colors' : Colors.pink, 'date': '01:33 am', 'ureadmsg': "2", },
+    {'name': 'Rajiv kumar', 'subtitle': '3 minutes ago', 'imgUrl' : "assets/images/girl3.png", 'colors' : Colors.green, 'date': '01:33 am', 'ureadmsg': "2", },
+    {'name': 'Pawan Singh', 'subtitle': '3 minutes ago ', 'imgUrl' : "assets/images/girl3.png", 'colors' : Colors.pink, 'date': '01:33 am', 'ureadmsg': "2", },
   ];
+
+  bool setvisibility =false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +39,9 @@ class _MyupdatepageState extends State<Myupdatepage> {
                     children: [
                       Stack(
                           children:[
-                            CircleAvatar(),
+                            CircleAvatar(
+                              backgroundImage: AssetImage("assets/images/boy1.jpeg"),
+                            ),
                             Positioned(
                                 top: 15,
                                 left: 15,
@@ -86,12 +90,39 @@ class _MyupdatepageState extends State<Myupdatepage> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          
-        },
-        child: Icon(Icons.add_a_photo_rounded),
-        
+      floatingActionButton: Expanded(
+        child: Stack(
+          children: [
+            FloatingActionButton(
+
+            onPressed: (){
+              setvisibility=true;
+              setState(() {
+
+              });
+              },
+            child: Icon(Icons.add_a_photo_rounded),
+             ),
+            Positioned(
+              top: -5,
+
+              child: Visibility(
+                visible: setvisibility,
+                child: FloatingActionButton(
+
+                  mini: true,
+                onPressed: (){
+                    setvisibility=false;
+                    setState(() {
+
+                    });
+                  },
+                child: Icon(Icons.edit),
+                 ),
+              ),
+            ),
+          ],
+        ),
       ),
 
 

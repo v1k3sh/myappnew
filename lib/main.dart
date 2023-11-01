@@ -54,6 +54,7 @@ class _myHomePageState extends State<myHomePage> {
 
   int currentindexpage = 0;
 
+
   List<Widget> pagelist = [
     MyChatpage(),
     Myupdatepage(),
@@ -71,6 +72,11 @@ class _myHomePageState extends State<myHomePage> {
               //shadowColor: Colors.red,
               //centerTitle: true,
               bottom: TabBar(
+                onTap: (index){
+                  setState(() {
+                    currentindexpage=index;
+                  });
+                },
                 tabs: [
                   Tab(
                      child: Row(
@@ -96,19 +102,33 @@ class _myHomePageState extends State<myHomePage> {
                           Text("Calls"),
                         ],
                       )),
+
                 ],
               ),
               actions: [
-
-              Icon(Icons.logout)
-
+                currentindexpage== 0 || currentindexpage== 2 ?
+                  Row(
+                      children: [
+                      Icon(Icons.camera_alt_outlined),
+                  SizedBox(width: 5,),
+                  Icon(Icons.search),
+                  SizedBox(width: 5,),
+                  Icon(Icons.more_vert),])
+                :
+                    Row(
+                    children:[
+                    Icon(Icons.camera_alt_outlined),
+                    SizedBox(width: 5,),
+                    Icon(Icons.more_vert),]),
   ]
+
       ),
       body: TabBarView(
         children: [
           MyChatpage(),
           Myupdatepage(),
           Myphonepage(),
+
           //pagelist[currentindexpage],
         ],
       ),

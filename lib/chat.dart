@@ -11,15 +11,15 @@ class _MyChatpageState extends State<MyChatpage> {
 
   List <Map<String, dynamic>> listName =[
     {'name': 'Vikesh','subtitle': 'Call me back ?','imgUrl' : 'assets/images/boy1.jpeg','colors' : Colors.orange, 'date': '11:21 am','ureadmsg': '2',},
-    {'name': 'Rajesh Sheoran', 'subtitle': 'How r u ?', 'imgUrl' : "assets/images/girl3.png", 'colors' : Colors.red, 'date': '12:22 pm', 'ureadmsg': '1',},
-    {'name': 'Geeta kumari', 'subtitle': 'rajesh is there ?', 'imgUrl' : "assets/images/girl12.png", 'colors' : Colors.yellow, 'date': '01:33 am', 'ureadmsg': '5', },
-    {'name': 'Rajiv kumar', 'subtitle': 'aaj to koni bane ', 'imgUrl' : "assets/girl3.png", 'colors' : Colors.green, 'date': '01:33 am', 'ureadmsg': '2', },
-    {'name': 'Pawan Singh', 'subtitle': 'aaja thanda piyenge ', 'imgUrl' : "assets/girl3.png", 'colors' : Colors.pink, 'date': '01:33 am', 'ureadmsg': '2', },
-    {'name': 'Ramesh kumar','subtitle': 'Call me back ?','imgUrl' : 'assets/images/boy1.png','colors' : Colors.orange, 'date': '11:21 am','ureadmsg': '2',},
-    {'name': 'Rajender sharma', 'subtitle': 'How r u ?', 'imgUrl' : "girl3.png", 'colors' : Colors.red, 'date': '12:22 pm', 'ureadmsg': '0',},
+    {'name': 'Rajesh Sheoran', 'subtitle': 'How r u ?', 'imgUrl' : "assets/images/boy2.png", 'colors' : Colors.red, 'date': '12:22 pm', 'ureadmsg': '1',},
+    {'name': 'Geeta kumari', 'subtitle': 'rajesh is there ?', 'imgUrl' : "assets/images/girl 2.png", 'colors' : Colors.yellow, 'date': '01:33 am', 'ureadmsg': '5', },
+    {'name': 'Rajiv kumar', 'subtitle': 'aaj to koni bane ', 'imgUrl' : "assets/images/girl1.png", 'colors' : Colors.green, 'date': '01:33 am', 'ureadmsg': '2', },
+    {'name': 'Pawan Singh', 'subtitle': 'aaja thanda piyenge ', 'imgUrl' : "assets/images/girl 2.png", 'colors' : Colors.pink, 'date': '01:33 am', 'ureadmsg': '2', },
+    {'name': 'Ramesh kumar','subtitle': 'Call me back ?','imgUrl' : 'assets/images/boy1.jpeg','colors' : Colors.orange, 'date': '11:21 am','ureadmsg': '2',},
+    {'name': 'Rajender sharma', 'subtitle': 'How r u ?', 'imgUrl' : "assets/images/girl3.png", 'colors' : Colors.red, 'date': '12:22 pm', 'ureadmsg': '0',},
     {'name': 'Gindodi kumari', 'subtitle': 'rajesh is there ?', 'imgUrl' : "assets/images/girl 2.png", 'colors' : Colors.yellow, 'date': '01:33 am', 'ureadmsg': '5', },
-    {'name': 'Raj kumar', 'subtitle': 'aaj to koni bane ', 'imgUrl' : "assets/girl3.png", 'colors' : Colors.green, 'date': '01:33 am', 'ureadmsg': '2', },
-    {'name': 'kavita Singh', 'subtitle': 'aaja thanda piyenge ', 'imgUrl' : "assets/girl3.png", 'colors' : Colors.pink, 'date': '01:33 am', 'ureadmsg': '2', },
+    {'name': 'Raj kumar', 'subtitle': 'aaj to koni bane ', 'imgUrl' : "assets/images/boy2.png", 'colors' : Colors.green, 'date': '01:33 am', 'ureadmsg': '2', },
+    {'name': 'kavita Singh', 'subtitle': 'aaja thanda piyenge ', 'imgUrl' : "assets/images/girl3.png", 'colors' : Colors.pink, 'date': '01:33 am', 'ureadmsg': '2', },
   ];
 
   @override
@@ -29,8 +29,11 @@ class _MyChatpageState extends State<MyChatpage> {
           itemCount: listName.length,
           itemBuilder: (_, index){
         return ListTile(
-
-          leading: Image.asset( "assets/images/girl3.png"),
+          leading: CircleAvatar(
+            backgroundImage: AssetImage(listName[index]["imgUrl"]),
+            backgroundColor: listName[index]["colors"],
+          ),
+          //Image.asset( "assets/images/girl3.png"),
           title: Text(listName[index]["name"]),
           subtitle: Text(listName[index]["subtitle"]),
           trailing: Column(
